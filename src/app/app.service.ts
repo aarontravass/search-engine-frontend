@@ -4,7 +4,7 @@ import {
   HttpParams,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, throwError } from 'rxjs';
+import { catchError, throwError } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AppService {
@@ -26,5 +26,9 @@ export class AppService {
       .pipe(catchError(this.handleError))
       .toPromise();
     return res;
+  }
+
+  async fetchToken(){
+    await this.http.get('http://localhost:3000/token').toPromise()
   }
 }

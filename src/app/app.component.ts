@@ -15,7 +15,7 @@ export class AppComponent {
   result: any = {};
   async ngOnInit() {
     console.log(this.search_query);
-    //this.result = await this.appService.search(this.search_query, 1);
+    await this.appService.fetchToken();
   }
 
   async submit(){

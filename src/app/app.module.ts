@@ -24,10 +24,7 @@ import {MatIconModule} from '@angular/material/icon';
     CommonModule,
     MatCardModule,
     MatIconModule,
-    HttpClientXsrfModule.withOptions({
-      cookieName: '_csrf',
-      headerName: 'My-Xsrf-Header',
-    }),
+    HttpClientXsrfModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
