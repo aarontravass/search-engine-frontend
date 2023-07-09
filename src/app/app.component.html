@@ -1,5 +1,6 @@
-<div class="center">
-  <h2>Search Engine</h2>
+<div class="center" style="display: flex; align-items: center; 
+justify-content: center;width: 100%;">
+  <h1 style="text-align: center">Search Engine</h1>
   <form class="center" style="text-align: center" (ngSubmit)="submit()">
     <mat-form-field class="center">
       <input
@@ -8,7 +9,7 @@
         [(ngModel)]="search_query"
         name="query"
         #query="ngModel"
-        style="width: 100%"
+        style="width: 120%"
       />
     </mat-form-field>
 
@@ -21,6 +22,8 @@
       Search
     </button>
   </form>
+  </div>
+  <div class="center">
   <table class="center">
     <tbody>
       <tr *ngFor="let item of result['items']">

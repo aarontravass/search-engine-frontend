@@ -24,7 +24,7 @@ export class AppService {
     //   async (res) => (res = await res.json())
     // );
     const res = await this.http
-      .get(ENVIRONMENT.API_URL + '/search', { params })
+      .get(ENVIRONMENT.API_URL + 'search', { params })
       .pipe(catchError(this.handleError))
       .toPromise();
     return res;
