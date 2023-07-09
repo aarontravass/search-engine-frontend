@@ -5,6 +5,8 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, throwError } from 'rxjs';
+import { ENVIRONMENT } from '../environments/default';
+
 
 @Injectable({ providedIn: 'root' })
 export class AppService {
@@ -22,13 +24,13 @@ export class AppService {
     //   async (res) => (res = await res.json())
     // );
     const res = await this.http
-      .get('http://localhost:3000/search', { params })
+      .get(ENVIRONMENT.API_URL + '/search', { params })
       .pipe(catchError(this.handleError))
       .toPromise();
     return res;
   }
 
-  async fetchToken(){
-    await this.http.get('http://localhost:3000/token').toPromise()
+  async fetchToken() {
+    await this.http.get(ENVIRONMENT.API_URL + 'token').toPromise();
   }
 }
