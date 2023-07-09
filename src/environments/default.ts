@@ -1,3 +1,3 @@
 export const ENVIRONMENT = {
-    API_URL: 'http://localhost:3000/'
+    API_URL: '//localhost:3000/'
 }

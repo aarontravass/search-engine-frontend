@@ -1,7 +1,7 @@
-<div class="center" style="display: flex; align-items: center; 
-justify-content: center;width: 100%;">
-  <h1 style="text-align: center">Search Engine</h1>
+<div class="center" style="justify-content: center;width: 100%;">
+  
   <form class="center" style="text-align: center" (ngSubmit)="submit()">
+    <h1 style="text-align: center">Search Engine</h1>
     <mat-form-field class="center">
       <input
         matInput
@@ -9,22 +9,21 @@ justify-content: center;width: 100%;">
         [(ngModel)]="search_query"
         name="query"
         #query="ngModel"
-        style="width: 120%"
       />
     </mat-form-field>
 
     <button
       mat-raised-button
       color="primary"
-      style="margin-left: 1%"
+      style="margin-left: 1%;padding: 27px"
       type="submit"
     >
       Search
     </button>
   </form>
   </div>
-  <div class="center">
-  <table class="center">
+  <div class="center-padding" style="width: 100%;">
+  <table class="center-padding">
     <tbody>
       <tr *ngFor="let item of result['items']">
         <td>
@@ -40,11 +39,11 @@ justify-content: center;width: 100%;">
       </tr>
     </tbody>
   </table>
-  <div class="button-row center" style="display: flex; justify-content: center;" *ngIf="result.items">
-    <button mat-raised-button color="accent" class="nav center" type="button" (click)="prev()">
+  <div class="button-row" style="display: flex; justify-content: center;" *ngIf="result.items">
+    <button mat-raised-button color="accent" class="nav" type="button" (click)="prev()">
       <mat-icon>arrow_back</mat-icon>
     </button>
-    <button mat-raised-button color="accent" class="nav center" type="button" (click)="next()">
+    <button mat-raised-button color="accent" class="nav" type="button" (click)="next()">
       <mat-icon>arrow_forward</mat-icon>
     </button>
   </div>

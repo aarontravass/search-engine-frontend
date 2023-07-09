@@ -7,7 +7,6 @@ import { Injectable } from '@angular/core';
 import { catchError, throwError } from 'rxjs';
 import { ENVIRONMENT } from '../environments/default';
 
-
 @Injectable({ providedIn: 'root' })
 export class AppService {
   constructor(private readonly http: HttpClient) {}
@@ -23,14 +22,19 @@ export class AppService {
     // return fetch('../assets/search.json').then(
     //   async (res) => (res = await res.json())
     // );
-    const res = await this.http
-      .get(ENVIRONMENT.API_URL + 'search', { params })
+    const res: any = await this.http
+      .post(ENVIRONMENT.API_URL + 'search', {}, { params })
       .pipe(catchError(this.handleError))
       .toPromise();
-    return res;
+    return res.data;
   }
 
   async fetchToken() {
-    await this.http.get(ENVIRONMENT.API_URL + 'token').toPromise();
+    return await this.http
+      .get(ENVIRONMENT.API_URL + 'token', {
+        responseType: 'text',
+        withCredentials: true,
+      })
+      .toPromise();
   }
 }

@@ -14,27 +14,22 @@ export class AppComponent {
   page_no = 1;
   result: any = {};
   async ngOnInit() {
-    console.log(this.search_query);
-    await this.appService.fetchToken();
+    // console.log(this.search_query);
+    // this.result =await this.appService.search(this.search_query, 1) ;
   }
 
   async submit(){
-    this.result = await this.appService.search(this.search_query, 1);
+    this.result =await this.appService.search(this.search_query, 1) ;
+    console.log(this.result)
   }
 
   async next() {
     if ((this.page_no + 1) * this.#per_page >= 100) return;
-    this.result = await this.appService.search(
-      this.search_query,
-      ++this.page_no
-    );
+    this.result = await this.appService.search(this.search_query, ++this.page_no) 
   }
 
   async prev() {
     if ((this.page_no - 1) * this.#per_page <= 0) return;
-    this.result = await this.appService.search(
-      this.search_query,
-      --this.page_no
-    );
+    this.result = await this.appService.search(this.search_query, --this.page_no) 
   }
 }
