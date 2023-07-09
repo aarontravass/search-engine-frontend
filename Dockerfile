@@ -5,7 +5,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 COPY ./package*.json /app/
 RUN npm i
 COPY . /app
-RUN npm run build
+RUN npm run build:prod
 
 # stage 2 - build the final image and copy the react build files
 FROM nginx:alpine
